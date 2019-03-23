@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 23, 2019 2:27:57 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.niit.hiberweb.Employee" table="EMPLOYEE100">
+        <id name="employeeId" type="int">
+            <column name="EMPLOYEEID" />
+            <generator class="increment" />
+        </id>
+        <property name="employeeName" type="java.lang.String">
+            <column name="EMPLOYEENAME" />
+        </property>
+        <set name="phoneNumbers" table="EMP_PHONE_NUMBERS" inverse="false" lazy="true">
+            <key>
+                <column name="EMPLOYEEID" />
+            </key>
+            <element type="java.lang.String">
+                <column name="PHONENUMBERS" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>
